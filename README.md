@@ -32,6 +32,7 @@ I would like to be able to add a description to the space
 
 As a user
 so that that others can check how much the space costs
+I would like to add a price to a space
 
 
 As a user

@@ -1,3 +1,5 @@
+require "./app/models/user.rb"
+
 require 'sinatra/base'
 
 class MakersBnb < Sinatra::Base

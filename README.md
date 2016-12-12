@@ -13,7 +13,7 @@ I would like to be able to sign in
 
 As a user
 so that I can enlist a space
-
+I would like to be able to add a space
 
 As a user
 so that I can manage my listings

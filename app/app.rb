@@ -9,15 +9,24 @@ class MakersBnb < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   get '/' do
-    "MakersBnB"
+    current_user
+    erb :"index"
   end
 
   get '/users/:id' do
-    @user = User.first(id: params[:id])
-    erb :'user/profile'
+    @current_user = User.first(id: params[:id])
+    erb :'user/new'
+  end
 
   get '/users/new' do
+    current_user
     erb :'user/new'
   end
 
@@ -26,11 +35,11 @@ class MakersBnb < Sinatra::Base
     session[:user_id] = user.id
     redirect '/'
   end
-  
+
   get '/sessions/new' do
     erb :'sessions/new'
   end
-  
+
   post '/sessions/new' do
     user = User.first(email: params[:email])
     if user
@@ -44,9 +53,6 @@ class MakersBnb < Sinatra::Base
     else
       flash.now[:notice] = 'User does not exist'
       redirect '/'
-   helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
     end
   end
 

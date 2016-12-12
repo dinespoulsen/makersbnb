@@ -18,11 +18,11 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
-  
+
   def authenticated?(user_password)
     BCrypt::Password.new(self.password_digest) == user_password
   end
-  
+
 end
 
 

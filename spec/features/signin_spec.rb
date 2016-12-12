@@ -11,7 +11,7 @@ feature "Signing in" do
     fill_in('email', with: 'test@test.com')
     fill_in('password', with: 'test')
     click_button('Sign In')
-    expect(page).to have_content('Welcome test@test.com')
+    expect(page).to have_content('Welcome, test@test.com')
   end
 
 end

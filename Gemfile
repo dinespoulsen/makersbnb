@@ -13,3 +13,4 @@ gem "bcrypt"
 gem "pg"
 gem "rake"
 gem "database_cleaner"
+gem 'sinatra-flash'

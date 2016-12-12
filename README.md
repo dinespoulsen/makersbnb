@@ -1,9 +1,11 @@
 **Headline specifications
 
 ``
+
 As a user  
 so that I can enlist a space  
 I would like to be able to signup  
+
 ``
 
 ``

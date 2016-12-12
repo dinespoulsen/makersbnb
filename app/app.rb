@@ -2,16 +2,20 @@ ENV['RACK_ENV'] ||= 'development'
 
 require_relative "./models/user"
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class MakersBnb < Sinatra::Base
-
+  register Sinatra::Flash
   enable :sessions
-  set :session_secret, 'super secret'
+  set :sessions_secret, 'super secret'
 
   get '/' do
-    current_user
-    erb :index
+    "MakersBnB"
   end
+
+  get '/users/:id' do
+    @user = User.first(id: params[:id])
+    erb :'user/profile'
 
   get '/users/new' do
     erb :'user/new'
@@ -22,8 +26,25 @@ class MakersBnb < Sinatra::Base
     session[:user_id] = user.id
     redirect '/'
   end
-
-  helpers do
+  
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+  
+  post '/sessions/new' do
+    user = User.first(email: params[:email])
+    if user
+      if user.authenticated?(params[:password])
+        session[:user_id] = user.id
+        redirect to("/users/#{user.id}")
+      else
+        flash.now[:notice] = 'Wrong password'
+        redirect '/'
+      end
+    else
+      flash.now[:notice] = 'User does not exist'
+      redirect '/'
+   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
     end

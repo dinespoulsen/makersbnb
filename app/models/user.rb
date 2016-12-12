@@ -19,10 +19,9 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-
 end
 
 
-  DataMapper.setup(:default, "postgres://localhost/makersbnb_development")
+  DataMapper.setup(:default, "postgres://localhost/makersbnb_#{ENV['RACK_ENV']}")
   DataMapper.finalize
   DataMapper.auto_upgrade!

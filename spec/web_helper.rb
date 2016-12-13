@@ -10,5 +10,7 @@ def add_space
   fill_in 'name', :with => "test"
   fill_in 'price', :with => 200
   fill_in 'description', :with => "testing"
+  fill_in 'available_from', :with => '14/12/2016'
+  fill_in 'available_to', :with => '30/12/2016'
   click_button 'Add space'
 end

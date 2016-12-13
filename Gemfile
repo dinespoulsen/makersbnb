@@ -14,3 +14,5 @@ gem "pg"
 gem "rake"
 gem "database_cleaner"
 gem 'sinatra-flash'
+gem 'travis'
+gem 'do_postgres', '0.10.17'

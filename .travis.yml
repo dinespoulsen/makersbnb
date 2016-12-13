@@ -1,0 +1,20 @@
+rvm: '2.3.1'
+
+script:
+  - mkdir -p spec && bundle exec rspec spec
+
+before_install:
+  - sed -i '2d' Gemfile
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql-server-dev-9.3
+
+before_script:
+  - psql -c 'create database makersbnb_test;' -U postgres
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: BNSLU6IIyojxyNgszCaDSgIcpo3LIZ0sGtSQ49JSXC2mcfevkxpA00v+Co3G/fE07Q7PMnyp+QPmSAqZpe8JRD8+3uG3OO9lKMYxTwGFu/d76LK1Y9jx4X1rtbcUZHhMauXzYxy/0PmqePP2EWFlcozJFEXC35p9MJFy4JaAIlnhZgyjkJ7N7HERCe9XcKdu0hpsyqsWpyHM47bh/vxqx77xgTxrjJeUs0524gEo9MoQYZzgBuYbZ3FUXCB6JJM6C5dRDjZdDabv1JzTUc2QKuTYNzop8pmqbiH9kQMEX9ASVXqNuPMvm420Mmosr88/AWMdpgl3Cit+XkOCjXjz/tGfwPY5ZsfscVgplUoExZH4THTGx7ubhk3k9g4MQILJejfZaNQGpj2Hlb8x0LeqcN8jm1HF4msjXP+Jcn+A1vOb3coc6Nw6TRpaZY3UMQOnitduTPexA5aq894UbGFSRDd4e7NWAtg3pFNYeqStLnRnnAqGKB2vS519p5+SHNnNDRjPZJrXRAQrb6iAm8zylhDP9jOoTmZ0AzBJzsCWXR6A62KTt1MDyS2OqtQzDs0yHxNP+9C2XhpuoSXxiqNFRvbMTBMJao13g9sjAzwPeMOZK9Z6splrfGqQOr8E3w8pBCw3wbcWgC6OOwXTrQNmYKtlGlC4YaZiDhDUgCerpUc=
+  app: makersbnb
+  on:
+    repo: dinespoulsen/makersbnb

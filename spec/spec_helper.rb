@@ -13,7 +13,6 @@ require 'web_helper.rb'
 Capybara.app = MakersBnb
 
 RSpec.configure do |config|
-  config.include Capybara::DSL
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -26,7 +25,12 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    DatabaseCleaner.clean_with(:truncation)
   end
+
+  config.include Capybara::DSL
+
+
 
   config.expect_with :rspec do |expectations|
 

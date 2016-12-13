@@ -2,3 +2,10 @@
 <%= @space.price %><br>
 <%= @space.description %><br>
 Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %>
+
+<form action="/requests" method="post">
+    <input type="hidden" name="space_id" value="<%= @space.id %>">
+    <input type="text" name="book_from">
+    <input type="text" name="book_to">
+    <input type="submit" value="Book">
+</form>

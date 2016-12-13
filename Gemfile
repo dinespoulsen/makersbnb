@@ -16,3 +16,4 @@ gem "database_cleaner"
 gem 'sinatra-flash'
 gem 'travis'
 gem 'do_postgres', '0.10.17'
+gem 'pry-byebug'

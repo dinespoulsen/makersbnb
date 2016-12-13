@@ -24,7 +24,7 @@ class User
   end
 
   has n, :spaces
-  has n, :requests
+  has n, :booking_requests
 
 
 end

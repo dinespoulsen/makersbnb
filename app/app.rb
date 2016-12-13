@@ -69,7 +69,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces' do
-    @space = Space.create(name: params[:name], price: params[:price], description: params[:description])
+    @space = current_user.spaces.create(name: params[:name], price: params[:price], description: params[:description])
     erb :'space/index'
   end
 

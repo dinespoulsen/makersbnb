@@ -9,7 +9,9 @@ class Space
   property :name, String
   property :price, Integer
   property :description, Text
+  property :available_from, Date
+  property :available_to, Date
 
-  belongs_to :user 
+  belongs_to :user
 
 end

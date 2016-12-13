@@ -1,3 +1,4 @@
-<%= @space.name %>
-<%= @space.price %>
-<%= @space.description %>
+<%= @space.name %><br>
+<%= @space.price %><br>
+<%= @space.description %><br>
+Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %>

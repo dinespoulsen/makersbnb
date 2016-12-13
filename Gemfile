@@ -14,3 +14,4 @@ gem "pg"
 gem "rake"
 gem "database_cleaner"
 gem 'sinatra-flash'
+gem 'travis'

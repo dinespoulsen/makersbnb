@@ -1,3 +1,8 @@
-<%= @space.name %>
-<%= @space.price %>
-<%= @space.description %>
+<h1>All spaces</h1>
+<% if !@spaces.empty? %>
+  <% @spaces.each do |space| %>
+  <%= space.name %>
+  <%= space.price %>
+  <%= space.description %>
+  <% end %>
+<% end %>

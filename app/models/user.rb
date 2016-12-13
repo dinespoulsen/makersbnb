@@ -23,4 +23,6 @@ class User
     BCrypt::Password.new(self.password_digest) == user_password
   end
 
+  has n, :spaces
+
 end

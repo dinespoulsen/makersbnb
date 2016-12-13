@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require_relative "./models/user"
+require_relative "./models/space"
 require_relative "./data_mapper_setup.rb"
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -61,6 +62,15 @@ class MakersBnb < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = "You have been logged out"
     redirect to('/sessions/new')
+  end
+
+  get '/spaces/new' do
+    erb :'space/new'
+  end
+
+  post '/spaces' do
+    @space = current_user.spaces.create(name: params[:name], price: params[:price], description: params[:description])
+    erb :'space/index'
   end
 
   # start the server if ruby file executed directly

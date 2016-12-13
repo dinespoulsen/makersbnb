@@ -82,6 +82,24 @@ class MakersBnb < Sinatra::Base
     erb :'space/space'
   end
 
+  post '/spaces/filter' do
+    if params[:start_date] < params[:end_date]
+      session[:start_date] = params[:start_date]
+      session[:end_date] = params[:end_date]
+      redirect '/spaces/filter'
+    else
+      flash[:notice] = 'End date is before start date'
+      redirect '/spaces'
+    end
+  end
+
+  get '/spaces/filter' do
+    @spaces = Space.all
+    @start_date = session[:start_date]
+    @end_date = session[:end_date]
+    erb :'space/filter'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

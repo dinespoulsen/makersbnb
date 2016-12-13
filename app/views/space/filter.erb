@@ -1,0 +1,14 @@
+<h1>Spaces available between <%=@start_date%> and <%=@end_date%> </h1>
+
+<% require 'pry'; binding.pry %>
+
+<% @spaces.each do |space| %>
+  <% if @start_date >= space.available_from.to_s && @end_date <= space.available_to.to_s %>
+  <ul>
+    <li><%= space.name %></li><br>
+    <li><%= space.price %></li><br>
+    <li><%= space.description %></li><br>
+    <li>Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %></li>
+  </ul>
+  <% end %>
+<% end %>

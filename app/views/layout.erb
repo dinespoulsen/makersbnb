@@ -12,8 +12,14 @@
   <form action="/sessions/terminate" method="post">
     <input type="submit" value="Log Out">
   </form>
+
   <a href='/spaces/new' class='button'>Add space</a><br>
   <% end %>
+
+  <form action="/spaces" method="get">
+    <input type="submit" value="Spaces">
+  </form>
+
   <%= yield %>
 </body>
 </html>

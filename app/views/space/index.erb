@@ -1,4 +1,10 @@
 
+<form action='/spaces/filter' method='post'>
+  <label>Start Date: </label><input id='start_date' type='date' name='start_date'/>
+  <label>End Date: </label><input id='end_date' type='date' name='end_date'/>
+  <input type='submit' value='Filter'/>
+</form>
+
 <h1>All spaces</h1>
 <% if !@spaces.empty? %>
   <% @spaces.each do |space| %>

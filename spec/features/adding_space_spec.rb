@@ -9,6 +9,7 @@ feature "adding space" do
 
   scenario "a user can add a space when signed in" do
     sign_in
+
     click_link 'Add space'
     fill_in 'name', :with => "Rory's penthouse"
     fill_in 'price', :with => 200
@@ -18,6 +19,7 @@ feature "adding space" do
     click_button 'Add space'
     expect(page).to have_content("Rory's penthouse")
     expect(page).to have_content("Available from 14/12/2016 to 30/12/2016")
+
   end
 
 end

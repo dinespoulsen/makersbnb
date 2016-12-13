@@ -13,6 +13,6 @@ class Space
   property :available_to, Date
 
   belongs_to :user
-  has n, :booking_requests
+  has n, :requests
 
 end

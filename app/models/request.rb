@@ -1,7 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class BookingRequest
+class Request
 
   include DataMapper::Resource
 

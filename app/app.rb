@@ -6,7 +6,6 @@ require_relative "./models/request"
 require_relative "./data_mapper_setup.rb"
 require 'sinatra/base'
 require 'sinatra/flash'
-require "pry"
 
 class MakersBnb < Sinatra::Base
   register Sinatra::Flash
@@ -91,7 +90,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/requests' do
-    request = current_user.booking_requests.new(date_from: params[:book_from], date_to: params[:book_to], space_id: params[:space_id])
+    request = current_user.requests.new(date_from: params[:book_from], date_to: params[:book_to], space_id: params[:space_id])
       if request.save
        redirect "/request/#{request.id}"
       else
@@ -100,7 +99,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/request/:id' do
-    @booking_request = BookingRequest.first(id: params[:id])
+    @booking_request = Request.first(id: params[:id])
     erb :'request/request'
   end
 

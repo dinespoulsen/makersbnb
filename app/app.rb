@@ -64,6 +64,15 @@ class MakersBnb < Sinatra::Base
     redirect to('/sessions/new')
   end
 
+  get '/spaces/new' do
+    erb :'space/new'
+  end
+
+  post '/spaces' do
+    @space = Space.create(name: params[:name], price: params[:price], description: params[:description])
+    erb :'space/index'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

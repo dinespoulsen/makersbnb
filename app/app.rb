@@ -57,6 +57,12 @@ class MakersBnb < Sinatra::Base
     end
   end
 
+  post '/sessions/terminate' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "You have been logged out"
+    redirect to('/sessions/new')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

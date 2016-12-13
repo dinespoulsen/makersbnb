@@ -24,5 +24,7 @@ class User
   end
 
   has n, :spaces
+  has n, :requests
+
 
 end

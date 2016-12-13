@@ -100,7 +100,8 @@ class MakersBnb < Sinatra::Base
 
   get '/request/:id' do
     @booking_request = Request.first(id: params[:id])
-    erb :'request/request'
+    @space = Space.get(@booking_request.space_id)
+    erb(:'request/request')
   end
 
 

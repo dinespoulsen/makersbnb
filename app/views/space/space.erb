@@ -6,7 +6,7 @@
 <% if current_user %>
 <form action="/requests" method="post">
     <input type="hidden" name="space_id" value="<%= @space.id %>">
-    <input type="text" name="date_on">
+    <input type="date" name="date_on">
     <input type="submit" value="Book">
 </form>
 

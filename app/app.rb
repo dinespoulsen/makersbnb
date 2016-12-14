@@ -24,6 +24,19 @@ class MakersBnb < Sinatra::Base
     erb :"index"
   end
 
+  post '/spaces/filter' do
+    session[:available_on] = params[:available_on]
+    redirect'/spaces/filter'
+  end
+
+  get '/spaces/filter' do
+    spaces = Space.all
+    date_array = session[:available_on].split("-")
+    date = Date.new(date_array[0].to_i, date_array[1].to_i, date_array[2].to_i)
+    @spaces = spaces.select {|space| (space.available_from < date) && (space.available_to > date)}
+    erb(:'space/index')
+  end
+
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'

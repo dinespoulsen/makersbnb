@@ -1,4 +1,7 @@
-
+<form action='/spaces/filter' method='post'>
+  <input type='date' name='available_on'>
+  <input type='submit' value='Find Spacess'>
+</form>
 <h1>All spaces</h1>
 <% if !@spaces.empty? %>
     <% @spaces.each do |space| %>

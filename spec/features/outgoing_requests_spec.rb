@@ -10,14 +10,12 @@ feature "Outgoing requests" do
   end
 
   scenario "user can see their own outgoing requests" do
-    sign_in
-    add_space
-    sign_out
-    sign_in_2
-
-    
-
+    book_space
+    click_link('My Requests')
+    expect(page).to have_content('test')
   end
+
+  # add another test for page not to have content ...
 
 
 end

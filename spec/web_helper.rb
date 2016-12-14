@@ -32,6 +32,21 @@ def sign_in_2
   click_button('Sign In')
 end
 
+def logout
+  click_button("Log Out")
+end
+
+def book_space
+  sign_in
+  add_space
+  logout
+  sign_in_2
+  click_link('Spaces')
+  click_link('test')
+  fill_in('date_on', with: '15/12/2016')
+  click_button('Book')
+end
+
 def sign_out
   click_button('Log Out')
 end

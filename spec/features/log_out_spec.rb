@@ -9,6 +9,6 @@ feature "when logging a user out" do
   scenario "a user should be able to terminate a log in session" do
     sign_in
     click_button("Log Out")
-    expect(page).to have_content("You have been logged out")
+    expect(page).to have_content("goodbye!")
   end
 end

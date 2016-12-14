@@ -9,6 +9,7 @@ require 'sinatra/flash'
 
 class MakersBnb < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :sessions_secret, 'super secret'
 
@@ -21,6 +22,12 @@ class MakersBnb < Sinatra::Base
   get '/' do
     current_user
     erb :"index"
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect '/spaces'
   end
 
   get '/users/:id' do
@@ -57,12 +64,6 @@ class MakersBnb < Sinatra::Base
       flash.now[:notice] = 'User does not exist'
       redirect '/'
     end
-  end
-
-  post '/sessions/terminate' do
-    session[:user_id] = nil
-    flash.keep[:notice] = "You have been logged out"
-    redirect to('/sessions/new')
   end
 
   get '/spaces' do

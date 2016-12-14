@@ -7,12 +7,18 @@
     <p><%= flash[:notice] %></p>
   <% end %>
 
+  <a href='/spaces' class='button'>Spaces</a>
+
   <% if @current_user %>
   <h1>Welcome, <%= @current_user.email %></h1>
-  <form action="/sessions/terminate" method="post">
-    <input type="submit" value="Log Out">
-  </form>
   <a href='/spaces/new' class='button'>Add space</a><br>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log Out'>
+  </form><br>
+  <% else %>
+  <a href='/sessions/new' class='button'>Sign In</a>
+  <a href='/users/new' class='button'>Sign Up</a>
   <% end %>
   <%= yield %>
 </body>

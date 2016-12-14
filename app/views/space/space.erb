@@ -1,4 +1,14 @@
-<%= @space.name %><br>
-<%= @space.price %><br>
-<%= @space.description %><br>
-Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %>
+<p>Name: <%= @space.name %></p>
+<p>Price: <%= @space.price %></p>
+<p>Description: <%= @space.description %></p>
+<p>Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %></p>
+
+<% if current_user %>
+<form action="/requests" method="post">
+    <input type="hidden" name="space_id" value="<%= @space.id %>">
+    <input type="text" name="book_from">
+    <input type="text" name="book_to">
+    <input type="submit" value="Book">
+</form>
+
+<% end %>

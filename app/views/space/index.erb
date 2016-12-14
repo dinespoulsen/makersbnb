@@ -1,10 +1,10 @@
 
 <h1>All spaces</h1>
 <% if !@spaces.empty? %>
-  <% @spaces.each do |space| %>
-  <%= space.name %><br>
-  <%= space.price %><br>
-  <%= space.description %><br>
-  Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %>
+    <% @spaces.each do |space| %>
+    <a href="/spaces/<%= space.id %>"><%= space.name %></a><br>
+    <%= space.price %><br>
+    <%= space.description %><br>
+    Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %>
   <% end %>
 <% end %>

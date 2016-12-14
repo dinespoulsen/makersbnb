@@ -15,6 +15,16 @@ def add_space
   click_button 'Add space'
 end
 
+def add_second_space
+  click_link 'Add space'
+  fill_in 'name', :with => "test2"
+  fill_in 'price', :with => 200
+  fill_in 'description', :with => "testing2"
+  fill_in 'available_from', :with => '14/01/2017'
+  fill_in 'available_to', :with => '30/01/2018'
+  click_button 'Add space'
+end
+
 def sign_in_2
   visit('/sessions/new')
   fill_in('email', with: 'test2@test2.com')
@@ -35,4 +45,8 @@ def book_space
   click_link('test')
   fill_in('date_on', with: '15/12/2016')
   click_button('Book')
+end
+
+def sign_out
+  click_button('Log Out')
 end

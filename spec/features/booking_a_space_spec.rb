@@ -10,10 +10,9 @@ feature "When booking a space" do
     sign_in
     add_space
     visit("/spaces/1")
-    fill_in("book_from", :with => '15/12/2016')
-    fill_in("book_to", :with => '29/12/2016')
+    fill_in("book_on", :with => '15/12/2016')
     click_button("Book")
-    expect(page).to have_content("From: 2016-12-15")
+    expect(page).to have_content("Booked for: 2016-12-15")
   end
 
 end

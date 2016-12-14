@@ -12,6 +12,7 @@
   <% if @current_user %>
   <h1>Welcome, <%= @current_user.email %></h1>
   <a href='/spaces/new' class='button'>Add space</a><br>
+  <a href='/spaces/myrequests' class='button'>My Requests</a><br>
   <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Log Out'>

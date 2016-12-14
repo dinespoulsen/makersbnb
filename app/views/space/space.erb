@@ -6,8 +6,7 @@
 <% if current_user %>
 <form action="/requests" method="post">
     <input type="hidden" name="space_id" value="<%= @space.id %>">
-    <input type="text" name="book_from">
-    <input type="text" name="book_to">
+    <input type="text" name="book_on">
     <input type="submit" value="Book">
 </form>
 

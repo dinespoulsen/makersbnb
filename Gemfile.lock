@@ -1,8 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.0)
-      public_suffix (~> 2.0, >= 2.0.2)
+    addressable (2.4.0)
     backports (3.6.8)
     bcrypt (3.1.11)
     bcrypt-ruby (3.1.5)
@@ -16,7 +15,6 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.1)
-    connection_pool (2.2.1)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -76,12 +74,12 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     fastercsv (1.5.5)
     ffi (1.9.14)
-    gh (0.14.0)
-      addressable
+    gh (0.15.0)
+      addressable (~> 2.4.0)
       backports
       faraday (~> 0.8)
       multi_json (~> 1.0)
-      net-http-persistent (>= 2.7)
+      net-http-persistent (~> 2.9)
       net-http-pipeline
     highline (1.7.8)
     json (1.8.3)
@@ -95,8 +93,7 @@ GEM
     mini_portile2 (2.1.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    net-http-persistent (3.0.0)
-      connection_pool (~> 2.2)
+    net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -108,7 +105,6 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
-    public_suffix (2.0.4)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)

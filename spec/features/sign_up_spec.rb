@@ -6,6 +6,6 @@ RSpec.feature "Sign Up" do
     fill_in 'email', :with => 'user@user.com'
     fill_in 'password', :with => 'password123'
     click_button 'Sign Up'
-    expect(page).to have_content('Welcome, user@user.com')
+    expect(page).to have_content('Hello, user@user.com')
   end
 end

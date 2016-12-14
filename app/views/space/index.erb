@@ -5,12 +5,20 @@
   <input type='date' name='available_to'>
   <input type='submit' value='Find Spacess'>
 </form>
-<h1>All spaces</h1>
-<% if !@spaces.empty? %>
-    <% @spaces.each do |space| %>
-    <a href="/spaces/<%= space.id %>"><%= space.name %></a><br>
-    <%= space.price %><br>
-    <%= space.description %><br>
-    Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %> <br>
-  <% end %>
-<% end %>
+<center><h1>All spaces</h1></center>
+
+<div class="container">
+  <div class="row">
+    <% if @spaces %>
+     <% @spaces.each do |space| %>
+      <div class="col-md-4">
+       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+  			<h3><a href="/spaces/<%= space.id %>"><%= space.name %></a></h3>
+  			<p><%= space.price %></p>
+        <p><%= space.description %></p>
+        <p>Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %></p>
+      </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>

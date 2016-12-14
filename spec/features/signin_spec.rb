@@ -8,7 +8,7 @@ feature "Signing in" do
 
   scenario "User will be able to sign in with correct password" do
     sign_in
-    expect(page).to have_content('Welcome, test@test.com')
+    expect(page).to have_content('Hello, test@test.com')
   end
 
 end

@@ -13,7 +13,7 @@ feature 'Incoming requests' do
     book_space
     logout
     sign_in
-    click_link('My Incoming Requests')
+    click_link('Incoming Requests')
     expect(page).to have_content('test')
 
   end

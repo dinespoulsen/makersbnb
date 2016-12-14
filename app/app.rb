@@ -25,15 +25,18 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces/filter' do
-    session[:available_on] = params[:available_on]
+    session[:available_from] = params[:available_from]
+    session[:available_to] = params[:available_to]
     redirect'/spaces/filter'
   end
 
   get '/spaces/filter' do
     spaces = Space.all
-    date_array = session[:available_on].split("-")
-    date = Date.new(date_array[0].to_i, date_array[1].to_i, date_array[2].to_i)
-    @spaces = spaces.select {|space| (space.available_from < date) && (space.available_to > date)}
+    date_from = session[:available_from].split("-")
+    date_to = session[:available_to].split("-")
+    date_f = Date.new(date_from[0].to_i, date_from[1].to_i, date_from[2].to_i)
+    date_t = Date.new(date_to[0].to_i, date_to[1].to_i, date_to[2].to_i)
+    @spaces = spaces.select {|space| (space.available_from <= date_f) && (space.available_to >= date_t)}
     erb(:'space/index')
   end
 

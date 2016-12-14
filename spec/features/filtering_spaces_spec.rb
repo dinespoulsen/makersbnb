@@ -10,8 +10,10 @@ RSpec.feature 'filter spaces' do
     add_space
     add_second_space
     visit'/spaces'
-    date = Date.new(2017, 12, 17)
-    fill_in 'available_on', :with => date
+    date_from = Date.new(2017, 12, 17)
+    date_to = Date.new(2017, 12, 18)
+    fill_in 'available_from', :with => date_from
+    fill_in 'available_to', :with => date_to
     click_button "Find Spaces"
     expect(page).to have_content('test2')
   end

@@ -120,7 +120,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/requests' do
-    request = current_user.requests.new(date_on: params[:date_on], space_id: params[:space_id])
+    request = current_user.requests.new(date_from: params[:date_from], date_to: params[:date_to], space_id: params[:space_id])
       if request.save
        redirect "/request/#{request.id}"
       else

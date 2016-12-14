@@ -43,7 +43,8 @@ def book_space
   sign_in_2
   click_link('Spaces')
   click_link('test')
-  fill_in('date_on', with: '15/12/2016')
+  fill_in('date_from', with: '14/12/2016')
+  fill_in('date_to', with: '15/12/2016')
   click_button('Book')
 end
 

@@ -1,6 +1,6 @@
 <form action='/spaces/filter' method='post'>
   <label for="available_from">From:</label>
-  <input type='date' name='available_from'>
+  <input type='date' name='available_from' min="<%= Date.today %>">
   <label for="available_to">To:</label>
   <input type='date' name='available_to'>
   <input type='submit' value='Find Spacess'>

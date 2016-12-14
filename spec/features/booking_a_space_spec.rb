@@ -12,7 +12,7 @@ feature "When booking a space" do
     visit("/spaces/1")
     fill_in("date_on", :with => '15/12/2016')
     click_button("Book")
-    expect(page).to have_content("Booked for: 2016-12-15")
+    expect(page).to have_content("Request for: 2016-12-15")
   end
 
 end

@@ -11,7 +11,7 @@ feature "Outgoing requests" do
 
   scenario "user can see their own outgoing requests" do
     book_space
-    click_link("My Requests")
+    click_link('My Requests')
     expect(page).to have_content('test')
   end
 

@@ -6,11 +6,11 @@ class Space
   include DataMapper::Resource
 
   property :id, Serial
-  property :name, String
-  property :price, Integer
-  property :description, Text
-  property :available_from, Date
-  property :available_to, Date
+  property :name, String, :required => true
+  property :price, Integer, :required => true
+  property :description, Text, :required => true
+  property :available_from, Date, :required => true
+  property :available_to, Date, :required => true
 
   belongs_to :user
   has n, :requests

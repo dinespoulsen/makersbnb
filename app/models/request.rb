@@ -6,8 +6,8 @@ class Request
   include DataMapper::Resource
 
   property :id, Serial
-  property :date_from, Date
-  property :date_to, Date
+  property :date_from, Date, :required => true
+  property :date_to, Date, :required => true
   property :confirmed, Boolean
 
   belongs_to :user, :space

@@ -19,8 +19,11 @@ class MakersBnb < Sinatra::Base
     end
   end
 
-  get '/' do
+  before do
     current_user
+  end
+
+  get '/' do
     erb :"index"
   end
 
@@ -52,7 +55,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/users/new' do
-    current_user
     erb :'user/new'
   end
 
@@ -83,7 +85,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
-    current_user
     @spaces = Space.all
     erb(:'space/index')
   end
@@ -94,12 +95,16 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces/myrequests' do
-    current_user
-    @requests = Request.all(:user_id => current_user.id)
+    @requests = current_user.requests
     @spaces = Space.all
     erb(:'space/myrequest')
   end
 
+  get '/spaces/myincomingrequests' do
+    @requests = current_user.spaces.requests
+    @spaces = Space.all
+    erb(:'space/myincomingrequest')
+  end
 
   get '/spaces/:id' do
     @space = Space.get(params[:id])
@@ -124,7 +129,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/request/:id' do
-    current_user
     @booking_request = Request.first(id: params[:id])
     @space = Space.get(@booking_request.space_id)
     erb(:'request/request')

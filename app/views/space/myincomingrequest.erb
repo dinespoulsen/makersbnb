@@ -1,10 +1,15 @@
 <% if @requests %>
   <% @requests.each do |request| %>
-     <%= @spaces.get(request.space_id).name%></a><br>
-     <%= @spaces.get(request.space_id).price %><br>
-     <%= @spaces.get(request.space_id).description %><br>
-     <%= request.date_from %><br>
-   <% end %>
-<% else %>
-<h2>You have no incoming requests</h2>
+     <label>Email: </label><%= @users.get(request.user_id).email %><br>
+     <label>Property: </label><%= @spaces.get(request.space_id).name%></a><br>
+     <label>Price: </label><%= @spaces.get(request.space_id).price %><br>
+     <label>Description: </label><%= @spaces.get(request.space_id).description %>
+     <br>
+     <label>Checkin: </label><%= request.date_from %><br>
+     <label>Checkout: </label><%= request.date_to %><br>
+  <% end %>
+<% end %>
+
+<% if @requests.empty? %>
+  <h2> <%= "You have no incoming requests" %> </h2>
 <% end %>

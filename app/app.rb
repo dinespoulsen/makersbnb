@@ -104,6 +104,7 @@ class MakersBnb < Sinatra::Base
   get '/spaces/myincomingrequests' do
     @requests = current_user.spaces.requests
     @spaces = Space.all
+    @users = User.all
     erb(:'space/myincomingrequest')
   end
 

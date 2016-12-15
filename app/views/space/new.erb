@@ -1,13 +1,32 @@
 <div class="jumbotron">
   <div class="container">
-    <h3>Add Space or spaceship</h3>
-    <form action='/spaces' method='post'>
-      <label>Name: </label><input type='text' name='name' required/><br>
-      <label>Price per night: </label><input type='text' name='price' required/><br>
-      <label>Description: </label><input type='text' name='description' required/><br>
-      <label>Available From: </label><input type='date' name='available_from' required/><br>
-      <label>Available To: </label><input type='date' name='available_to' require/><br>
-      <input type='submit' value='Add space'/>
-    </form>
+
+    <h3 class="description">Add Space or spaceship</h3>
+
+    <div class="form-holder">
+      <form action='/spaces' method='post'>
+        <div class="form-group">
+          <label>Name: </label>
+          <input class="form-control" type='text' name='name' required/><br>
+        </div>
+        <div class="form-group">
+          <label>Price per night: </label>
+          <input class="form-control" type='text' name='price' required/><br>
+        </div>
+        <div class="form-group">
+          <label>Description: </label>
+          <input class="form-control" type='text' name='description' required/><br>
+        </div>
+        <div class="form-group">
+          <label>Available From: </label>
+          <input class="form-control" type='date' name='available_from' required/><br>
+        </div>
+        <div class="form-group">
+          <label>Available To: </label>
+          <input class="form-control" type='date' name='available_to' require/><br>
+        </div>
+        <input type='submit' value='Add space'/>
+      </form>
+    </div>
   </div>
 </div>

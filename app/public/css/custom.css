@@ -18,13 +18,13 @@ body {
 }
 
 .btn-primary {
-  background-color: transparent;
+  background-color: #fff;
   border-color: #333;
   color: #333;
 }
 
 .btn-primary:hover {
-  background-color: #fff;
+  background-color: transparent;
   border-color: #333;
   color: #333;
 }
@@ -44,4 +44,14 @@ body {
 
 h1 {
   color: white;
+}
+
+.form-holder {
+  width: 50%;
+  margin: auto;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 30px; 
 }

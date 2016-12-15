@@ -1,0 +1,34 @@
+<center>
+  <div class="jumbotron">
+    <div class="container">
+      <% if @requests.empty? %>
+        <h3><%= "You have no incoming requests" %></h3>
+      <% else %>
+        <h3><%= "Your incoming requests" %></h3>
+      <% end %>
+    </div>
+  </div>
+</center>
+
+  <div class="container">
+    <div class="row">
+    <% if @requests %>
+      <% @requests.each do |request| %>
+        <div class="col-md-12">
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <label>Email: </label><%= @users.get(request.user_id).email %><br>
+          <label>Property: </label><%= @spaces.get(request.space_id).name%></a><br>
+          <label>Price: </label><%= @spaces.get(request.space_id).price %><br>
+          <label>Description: </label><%= @spaces.get(request.space_id).description %>
+          <br>
+          <label>Checkin: </label><%= request.date_from %><br>
+          <label>Checkout: </label><%= request.date_to %><br>
+          <form action='/requests/confirm' method='post'>
+            <input type="hidden" name="request_id" value="<%= request.id%>">
+            <input id="<%= request.id %>" value='Confirm' type='submit'>
+          </form>
+        </div>
+       <% end %>
+      <% end %>
+    </div>
+  </div>

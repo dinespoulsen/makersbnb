@@ -1,3 +1,14 @@
+<center>
+  <div class="jumbotron">
+  <div class="container">
+    <% if @requests.empty? %>
+      <h3><%= "You have not made any requests" %></h3>
+    <% else %>
+      <h3><%= "Your requests" %></h3>
+    <% end %>
+  </div>
+</div>
+
 
 <% if @requests %>
     <% @requests.each do |request| %>
@@ -8,3 +19,4 @@
     Confirmed: <%= request.confirmed %><br>
   <% end %>
 <% end %>
+</center>

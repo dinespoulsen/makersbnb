@@ -13,6 +13,7 @@ feature "Outgoing requests" do
     book_space
     click_link('My Requests')
     expect(page).to have_content('test')
+    expect(page).to have_content('false')
   end
 
   # add another test for page not to have content ...

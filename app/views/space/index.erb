@@ -34,7 +34,7 @@
      <% @spaces.each do |space| %>
       <div class="col-md-12">
         <div class="col-md-6">
-          <p><img src="<%= space.image_url %>" height="180"></p>
+          <p><img src="<%= space.image_url || "../moon-base.jpeg" %>" height="180"></p>
         </div>
         <div class="col-md-6">
          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>

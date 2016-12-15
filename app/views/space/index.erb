@@ -33,11 +33,15 @@
     <% if !@spaces.empty? %>
      <% @spaces.each do |space| %>
       <div class="col-md-12">
-       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-  			<h3><a href="/spaces/<%= space.id %>"><%= space.name %></a></h3>
-  			<p><%= space.price %></p>
-        <p><%= space.description %></p>
-        <p>Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %></p>
+        <div class="col-md-6">
+          <p><img src="<%= space.image_url %>" height="180"></p>
+        </div>
+        <div class="col-md-6">
+         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    			<h3><a href="/spaces/<%= space.id %>"><%= space.name %></a></h3>
+    			<p>Price: <%= space.price %></p>
+          <p>Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %></p>
+        </div>
       </div>
      <% end %>
     <% end %>

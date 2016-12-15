@@ -86,7 +86,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
-    @spaces = Space.all
+    @spaces = Space.all.reverse
     erb(:'space/index')
   end
 
@@ -116,7 +116,7 @@ class MakersBnb < Sinatra::Base
 
   post '/spaces' do
     @space = current_user.spaces.create(name: params[:name], price: params[:price],
-            description: params[:description], available_from: params[:available_from],
+            description: params[:description], image_url: params[:image_url], available_from: params[:available_from],
             available_to: params[:available_to])
     erb :'space/space'
   end

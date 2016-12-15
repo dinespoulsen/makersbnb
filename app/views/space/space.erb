@@ -1,14 +1,23 @@
 <div class="jumbotron">
   <div class="container">
+
+
     <% if current_user %>
-    <form action="/requests" method="post">
-        <input type="hidden" name="space_id" value="<%= @space.id %>">
-        <label for="date_from">From:</label>
-        <input type="date" name="date_from" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
-        <label for="date_to">To:</label>
-        <input type="date" name="date_to" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
-        <input type="submit" value="Book">
-    </form>
+    <div class="form-holder">
+      <h3 class="description"><%= @space.name %></h3>
+      <form action="/requests" method="post">
+          <input type="hidden" name="space_id" value="<%= @space.id %>">
+        <div class="form-group">
+          <label for="date_from">From:</label>
+          <input class="form-control" type="date" name="date_from" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
+        </div>
+        <div class="form-group">
+          <label for="date_to">To:</label>
+          <input class="form-control" type="date" name="date_to" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
+        </div>
+          <input type="submit" value="Book">
+      </form>
+    </div>
     <% end %>
   </div>
 </div>
@@ -16,11 +25,32 @@
 <div class="container">
   <div class="row">
       <div class="col-md-12">
-       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-        <p>Name: <%= @space.name %></p>
-        <p>Price: <%= @space.price %></p>
-        <p>Description: <%= @space.description %></p>
-        <p>Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %></p>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name:</th>
+                <th>Price:</th>
+                <th>Description:</th>
+                <th>Available from</th>
+                <th>Available to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @space.name %></td>
+                <td><%= @space.price %></td>
+                <td><%= @space.description %></td>
+                <td><%= @space.available_from.strftime('%d/%m/%Y') %></td>
+                <td><%= @space.available_to.strftime('%d/%m/%Y') %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        <div class="col-md-12">
+          <img src="<%= @space.image_url %>" width="100%">
+        </div>
       </div>
   </div>
+
 </div>

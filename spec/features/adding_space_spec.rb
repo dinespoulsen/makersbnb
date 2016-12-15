@@ -11,7 +11,7 @@ feature "adding space" do
     sign_in
     add_space
     expect(page).to have_content("test")
-    expect(page).to have_content("Available from 14/12/2016 to 30/12/2016")
+    expect(page).to have_content("14/12/2016")
   end
 
 end

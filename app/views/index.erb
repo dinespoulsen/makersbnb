@@ -1,5 +1,24 @@
-<html>
-<body>
-  <h1> Hi </h1>
-</body>
-</html>
+  <div class="jumbotron">
+  	<div class="container">
+  		<h1>Welcome to Maker's BnB</h1>
+  		<p>Write something "cool" here...</p>
+  		<br>
+  		<p><a class="btn btn-primary btn-lg" href="/spaces" role="button">Browse Available Spaces</a></p>
+  	</div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <% if !@spaces.empty? %>
+     <% @spaces.each do |space| %>
+      <div class="col-md-4">
+       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+  			<h3><a href="/spaces/<%= space.id %>"><%= space.name %></a></h3>
+  			<p><%= space.price %></p>
+        <p><%= space.description %></p>
+        <p>Available from <%= space.available_from.strftime('%d/%m/%Y') %> to <%= space.available_to.strftime('%d/%m/%Y') %></p>
+      </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>

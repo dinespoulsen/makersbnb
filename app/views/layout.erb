@@ -1,27 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MakersBnB</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
   </head>
-<body>
-  <% if flash %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
 
-  <a href='/spaces' class='button'>Spaces</a>
+    <body>
+      <% if flash %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
 
-  <% if @current_user %>
-  <h1>Welcome, <%= @current_user.email %></h1>
-  <a href='/spaces/new' class='button'>Add space</a><br>
-  <a href='/spaces/myrequests' class='button'>My Requests</a><br>
-  <a href='/spaces/myincomingrequests' class='button'>My Incoming Requests</a><br>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out'>
-  </form><br>
-  <% else %>
-  <a href='/sessions/new' class='button'>Sign In</a>
-  <a href='/users/new' class='button'>Sign Up</a>
-  <% end %>
-  <%= yield %>
-</body>
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+		      <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MAKER'S BNB</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/spaces">Spaces</a></li>
+            <% if @current_user %>
+              <li><a href="/spaces/new">Add space</a></li>
+              <li><a href="/spaces/myrequests">My Requests</a></li>
+              <li><a href="/spaces/myincomingrequests">My Incoming Requests</a></li>
+              <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Requests<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/spaces/myrequests">Requests I've Made</a></li>
+                  <li><a href="/spaces/incomingrequests">Requests for my Spaces</a></li>
+                </ul>
+              </li> -->
+              <li class="logout"><form method='post' action='/sessions'>
+                    <input type='hidden' name='_method' value='delete'>
+                    <input type='submit' value='Log Out'>
+                </form>
+              </li>
+            <% else %>
+              <li><a href="/sessions/new">Sign In</a></li>
+              <li><a href="/users/new">Sign Up</a></li>
+            <% end %>
+          </ul>
+          <% if @current_user %>
+            <ul class="nav navbar-nav navbar-left">
+              <li><a href="#">Hello, <%= @current_user.email %></a></li>
+            </ul>
+          <% end %>
+          </div>
+        </div>
+      </nav>
+
+
+      <%= yield %>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
+      <script src="/js/bootstrap.min.js"></script>
+    </body>
 </html>

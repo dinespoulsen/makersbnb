@@ -1,16 +1,26 @@
-<p>Name: <%= @space.name %></p>
-<p>Price: <%= @space.price %></p>
-<p>Description: <%= @space.description %></p>
-<p>Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %></p>
+<div class="jumbotron">
+  <div class="container">
+    <% if current_user %>
+    <form action="/requests" method="post">
+        <input type="hidden" name="space_id" value="<%= @space.id %>">
+        <label for="date_from">From:</label>
+        <input type="date" name="date_from" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
+        <label for="date_to">To:</label>
+        <input type="date" name="date_to" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
+        <input type="submit" value="Book">
+    </form>
+    <% end %>
+  </div>
+</div>
 
-<% if current_user %>
-<form action="/requests" method="post">
-    <input type="hidden" name="space_id" value="<%= @space.id %>">
-    <label for="date_from">From:</label>
-    <input type="date" name="date_from" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
-    <label for="date_to">To:</label>
-    <input type="date" name="date_to" min="<%= @space.available_from %>" max="<%= @space.available_to %>" required>
-    <input type="submit" value="Book">
-</form>
-
-<% end %>
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        <p>Name: <%= @space.name %></p>
+        <p>Price: <%= @space.price %></p>
+        <p>Description: <%= @space.description %></p>
+        <p>Available from <%= @space.available_from.strftime('%d/%m/%Y') %> to <%= @space.available_to.strftime('%d/%m/%Y') %></p>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<center>
+  <div class="jumbotron">
+  <div class="container">
+    <% if @requests.empty? %>
+      <h3><%= "You have not made any requests" %></h3>
+    <% else %>
+      <h3><%= "Your requests" %></h3>
+    <% end %>
+  </div>
+</div>
+
+</center>
+
+<div class="container">
+  <div class="row">
+    <% if @requests %>
+     <% @requests.each do |request| %>
+      <div class="col-md-12">
+       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+       <p><%= @spaces.get(request.space_id).name%></a></p><br>
+       <p><%= @spaces.get(request.space_id).price %></p><br>
+       <p><%= @spaces.get(request.space_id).description %></p><br>
+       <p><%= request.date_from %></p><br>
+       <p>Confirmed: <%= request.confirmed %></p><br>
+      </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>

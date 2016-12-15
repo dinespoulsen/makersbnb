@@ -74,7 +74,7 @@ class MakersBnb < Sinatra::Base
     if user
       if user.authenticated?(params[:password])
         session[:user_id] = user.id
-        redirect to("/users/#{user.id}")
+        redirect to("/spaces")
       else
         flash.now[:notice] = 'Wrong password'
         redirect '/'
@@ -98,14 +98,14 @@ class MakersBnb < Sinatra::Base
   get '/spaces/myrequests' do
     @requests = current_user.requests
     @spaces = Space.all
-    erb(:'space/myrequest')
+    erb(:'space/my_request')
   end
 
   get '/spaces/myincomingrequests' do
     @requests = current_user.spaces.requests
     @spaces = Space.all
     @users = User.all
-    erb(:'space/myincomingrequest')
+    erb(:'space/my_incoming_request')
   end
 
   get '/spaces/:id' do

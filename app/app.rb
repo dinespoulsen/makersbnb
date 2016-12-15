@@ -145,6 +145,7 @@ class MakersBnb < Sinatra::Base
   get '/requests/confirm' do
     @booking_request = Request.get( session[:request_id])
     @space = Space.get(@booking_request.space_id)
+    @booking_request.update(confirmed: true)
     erb(:'request/confirm')
   end
 

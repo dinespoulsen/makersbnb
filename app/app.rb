@@ -122,7 +122,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/requests' do
-    request = current_user.requests.new(date_from: params[:date_from], date_to: params[:date_to], space_id: params[:space_id])
+    request = current_user.requests.new(date_from: params[:date_from], date_to: params[:date_to], space_id: params[:space_id], confirmed: false)
       if request.save
        redirect "/request/#{request.id}"
       else
@@ -130,11 +130,24 @@ class MakersBnb < Sinatra::Base
     end
   end
 
+
   get '/request/:id' do
     @booking_request = Request.first(id: params[:id])
     @space = Space.get(@booking_request.space_id)
     erb(:'request/request')
   end
+
+  post '/requests/confirm' do
+    session[:request_id] = params[:request_id]
+    redirect '/requests/confirm'
+  end
+
+  get '/requests/confirm' do
+    @booking_request = Request.get( session[:request_id])
+    @space = Space.get(@booking_request.space_id)
+    erb(:'request/confirm')
+  end
+
 
 
 

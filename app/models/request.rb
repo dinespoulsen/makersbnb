@@ -10,6 +10,7 @@ class Request
   property :date_to, Date, :required => true
   property :confirmed, Boolean
 
-  belongs_to :user, :space
+  belongs_to :user
+  belongs_to :space
 
 end

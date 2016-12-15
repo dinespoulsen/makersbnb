@@ -28,9 +28,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= Space.get(request.space_id).name %></td>
-                  <td><%= Space.get(request.space_id).price %></td>
-                  <td><%= Space.get(request.space_id).description %></td>
+                  <td><%= request.space.name %></td>
+                  <td><%= request.space.price %></td>
+                  <td><%= request.space.description %></td>
                   <td><%= request.date_from.strftime('%d/%m/%Y') %></td>
                   <td><%= request.date_to.strftime('%d/%m/%Y') %></td>
                 </tr>

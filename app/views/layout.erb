@@ -12,9 +12,7 @@
   </head>
 
     <body>
-      <% if flash %>
-        <p><%= flash[:notice] %></p>
-      <% end %>
+
 
       <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
@@ -64,6 +62,12 @@
           </div>
         </div>
       </nav>
+
+      <center>
+        <% if flash %>
+          <font color="white"><%= flash[:notice] %></font>
+        <% end %>
+      </center>
 
 
       <%= yield %>

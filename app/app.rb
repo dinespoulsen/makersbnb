@@ -40,7 +40,7 @@ class MakersBnb < Sinatra::Base
     date_to = session[:available_to].split("-")
     date_f = Date.new(date_from[0].to_i, date_from[1].to_i, date_from[2].to_i)
     date_t = Date.new(date_to[0].to_i, date_to[1].to_i, date_to[2].to_i)
-    @spaces = spaces.select {|space| (space.available_from <= date_f) && (space.available_to >= date_t)}
+    @spaces = spaces.select {|space| space.available?(date_f, date_t)}
     erb(:'space/index')
   end
 

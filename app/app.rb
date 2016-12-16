@@ -33,9 +33,9 @@ class MakersBnb < Sinatra::Base
       flash.keep[:notice] = "Unable to filter space - 'To' date is before 'From'"
       redirect('/spaces')
     else
-    session[:available_from] = params[:available_from]
-    session[:available_to] = params[:available_to]
-    redirect'/spaces/filter'
+      session[:available_from] = params[:available_from]
+      session[:available_to] = params[:available_to]
+      redirect'/spaces/filter'
     end
   end
 
@@ -51,7 +51,7 @@ class MakersBnb < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
+    flash.keep[:notice] = 'You have been logged out'
     redirect '/spaces'
   end
 
@@ -115,6 +115,11 @@ class MakersBnb < Sinatra::Base
 
   get '/spaces/:id' do
     @space = Space.get(params[:id])
+    if @space.available_from > Date.today
+      @min_date = @space.available_from
+    else
+      @min_date = Date.today
+    end
     erb(:'space/space')
   end
 

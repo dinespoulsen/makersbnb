@@ -45,10 +45,15 @@
          <br>
          <p><label>Checkin: </label><%= request.date_from %></p><br>
          <p><label>Checkout: </label><%= request.date_to %></p><br> -->
+
+         <% if request.confirmed %>
+          <h3>Confirmed</h3>
+          <% else %>
          <form action='/requests/confirm' method='post'>
            <input type="hidden" name="request_id" value="<%= request.id%>">
            <input id="<%= request.id %>" value='Confirm' type='submit'>
          </form>
+         <% end %>
         </div>
        <% end %>
       <% end %>

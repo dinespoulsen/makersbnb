@@ -20,4 +20,15 @@ feature 'Confirming requests' do
     expect(Request.first.confirmed).to eq(true)
   end
 
+  scenario "Incoming requests should show up as confirmed once confirmed" do
+    book_space
+    logout
+    sign_in
+    click_link('My Incoming Requests')
+    click_button('Confirm')
+    visit('/spaces')
+    click_link('My Incoming Requests')
+    expect(page).to have_content('Confirmed')
+  end
+
 end

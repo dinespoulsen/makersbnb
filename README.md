@@ -89,6 +89,7 @@ Technologies used
 * DataMapper
 * Sinatra framework
 * Database Cleaner
+* Jquery
 * RSpec & Capybara testing
 * Heroku for web hosting
 

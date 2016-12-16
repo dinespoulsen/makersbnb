@@ -4,7 +4,7 @@ Makers BnB/Mars Bnb
 
 Introduction
 -------
-The Mars BnB application is the first project group challenge at the Makers Academy in London. The challenge was to build an application that could handle space bookings via user requests. The project integrated all the technologies from the first 5 weeks at the academy. We built the application via the Sinatra framework and we used DataMapper and Postgres as the adapter to set up the database. We added client and database validation to the application and conditional routing to the controller in order to enhance user security. The project was the first group project and we managed our time and work flow via waffle.io. 
+The Mars BnB application is the first project group challenge at the Makers Academy in London. The challenge was to build an application that could handle space bookings via user requests. We integrated a filter feature that will filter available spaces according to their own availability and confirmed bookings. The project integrated all the technologies from the first 5 weeks at the academy. We built the application via the Sinatra framework and we used DataMapper and Postgres as the adapter to set up the database. We added client and database validation to the application and conditional routing to the controller in order to enhance user security. The project was the first group project and we managed our time and work flow via waffle.io. 
 
 You can check out the application via https://secret-earth-94385.herokuapp.com/
 

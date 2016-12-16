@@ -23,13 +23,13 @@
         </div>
         <div class="form-group">
           <label>Available From: </label>
-          <input class="form-control" type='date' name='available_from' min='<%= Date.today %>' required/><br>
+          <input id="date_from" class="form-control" type='text' name='available_from' min='<%= Date.today %>' required/><br>
         </div>
         <div class="form-group">
           <label>Available To: </label>
-          <input class="form-control" type='date' name='available_to' require/><br>
+          <input id="date_to" class="form-control" type='text' name='available_to' require/><br>
         </div>
-        <input type='submit' value='Add space'/>
+        <input class="btn btn-info" type='submit' value='Add space'/>
       </form>
     </div>
   </div>

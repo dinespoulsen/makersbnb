@@ -17,13 +17,13 @@ body {
   background: #ffeb7a;
 }
 
-.btn-primary {
+.btn {
   background-color: #fff;
   border-color: #333;
   color: #333;
 }
 
-.btn-primary:hover {
+.btn:hover {
   background-color: transparent;
   border-color: #333;
   color: #333;

@@ -1,4 +1,17 @@
-**Headline specifications
+
+Makers BnB/Mars Bnb
+==================
+
+Introduction
+-------
+The Mars BnB application is the first project group challenge at the Makers Academy in London. The challenge was to build an application that could handle space bookings via user requests. The project integrated all the technologies from the first 5 weeks at the academy. We built the application via the Sinatra framework and we used DataMapper and Postgres as the adapter to set up the database. I have added client and database validation to the application and conditional routing to the controller in order to enhance user security.
+
+You can check out the application via https://secret-earth-94385.herokuapp.com/
+
+Features that needed to be implemented:
+-------
+
+*** Headline specifications
 
 ```
 As a user  
@@ -60,4 +73,31 @@ so that my space gets full exposure
 the space should still be available until a booking has been confirmed
 ```
 
-**Nice to haves
+Installation
+-----
+* Run the command 'bundle install' in the project directory to ensure you have all the gems.
+
+
+How to use the applicaton
+-----
+
+To run the program start a local server by writing ruby app/app.rb in the terminal and the app.rb file from the project directory will be executed.
+
+Technologies used
+-----
+* PostgreSQL database
+* DataMapper
+* Sinatra framework
+* Database Cleaner
+* RSpec & Capybara testing
+* Heroku for web hosting
+
+Areas to improve
+-----
+
+* Improving user profile validations
+* Booking validation
+* Enhanced date validation
+* Image uploader
+* Improving the design features
+* Offering tickets to Mars

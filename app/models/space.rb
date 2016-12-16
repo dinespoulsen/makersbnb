@@ -19,7 +19,7 @@ class Space
   def available?(date_from, date_to)
     confirmed_requests = self.requests.all(confirmed: true)
       if confirmed_requests.any? do |request|
-        request.date_from <= date_from || request.date_to >= date_to
+        (date_to - date_from).include?((request.date_to - request.date_from)) && (request.date_from <= date_from || request.date_to >= date_to)
         end
       return false
       else

@@ -29,9 +29,14 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces/filter' do
+    if params[:available_to] < params[:available_from]
+      flash.keep[:notice] = "Unable to filter space - 'To' date is before 'From'"
+      redirect('/spaces')
+    else
     session[:available_from] = params[:available_from]
     session[:available_to] = params[:available_to]
     redirect'/spaces/filter'
+    end
   end
 
   get '/spaces/filter' do
@@ -115,18 +120,28 @@ class MakersBnb < Sinatra::Base
 
 
   post '/spaces' do
+    if params[:available_to] < params[:available_from]
+      flash.keep[:notice] = "Unable to add space - Available to date is before available from"
+      redirect('/spaces')
+    else
     @space = current_user.spaces.create(name: params[:name], price: params[:price],
             description: params[:description], image_url: params[:image_url], available_from: params[:available_from],
             available_to: params[:available_to])
     erb :'space/space'
+    end
   end
 
   post '/requests' do
+    if params[:date_to] < params[:date_from]
+      flash.keep[:notice] = "Unable to add space - Available to date is before available from"
+      redirect('/spaces')
+    else
     request = current_user.requests.new(date_from: params[:date_from], date_to: params[:date_to], space_id: params[:space_id], confirmed: false)
       if request.save
        redirect "/request/#{request.id}"
       else
       redirect '/spaces'
+      end
     end
   end
 

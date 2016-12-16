@@ -81,12 +81,12 @@ class MakersBnb < Sinatra::Base
         session[:user_id] = user.id
         redirect to("/spaces")
       else
-        flash.now[:notice] = 'Wrong password'
-        redirect '/'
+        flash.keep[:notice] = 'Wrong password'
+        redirect '/sessions/new'
       end
     else
-      flash.now[:notice] = 'User does not exist'
-      redirect '/'
+      flash.keep[:notice] = 'User does not exist'
+      redirect '/sessions/new'
     end
   end
 

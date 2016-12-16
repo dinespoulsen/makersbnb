@@ -42,7 +42,7 @@
           <% else %>
          <form action='/requests/confirm' method='post'>
            <input type="hidden" name="request_id" value="<%= request.id%>">
-           <input id="<%= request.id %>" value='Confirm' type='submit'>
+           <input class="btn btn-info" id="<%= request.id %>" value='Confirm' type='submit'>
          </form>
          <% end %>
         </div>

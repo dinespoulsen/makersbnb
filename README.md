@@ -11,7 +11,6 @@ You can check out the application via https://secret-earth-94385.herokuapp.com/
 Features that needed to be implemented:
 -------
 
-*** Headline specifications
 
 ```
 As a user  
